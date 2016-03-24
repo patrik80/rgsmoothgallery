@@ -60,6 +60,20 @@ $tempColumns = Array (
     ),
 );
 
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns("tt_content",$tempColumns,1);
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns(
+        'tt_content',
+         $tempColumns,
+         1
+);
 
-$GLOBALS['TCA']['tt_content']['palettes']['7']['showitem'] .= ',tx_rgsmoothgallery_rgsg';
+
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToPalette(
+    'tt_content',
+    'imagelinks',
+    'tx_rgsmoothgallery_rgsg',
+    'after:image_zoom'
+);
+
+//\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns("tt_content",$tempColumns,1);
+
+//$GLOBALS['TCA']['tt_content']['palettes']['7']['showitem'] .= ',tx_rgsmoothgallery_rgsg';
